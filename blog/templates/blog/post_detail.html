@@ -1,6 +1,15 @@
 {% extends 'blog/base.html' %} {% block content %}
 <article>
-  <h2 class="text-[50px] font-bold ml-8">{{ post.title }}</h2>
+  <div class="flex justify-between ...">
+    <div>
+      <h2 class="text-[50px] font-bold ml-8">
+        <a>{{ post.title }}</a>
+      </h2>
+    </div>
+    <div class="mr-8 mt-8">
+      <time class="text-[15px] ml-8">published: {{ post.published_date }}</time>
+    </div>
+  </div>
   <p class="text-[20px] ml-8">{{ post.text|linebreaksbr }}</p>
 </article>
 {% endblock %}
