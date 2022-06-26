@@ -1,8 +1,19 @@
 {% extends 'blog/base.html' %} {% block content %} {% for post in posts %}
 <article>
-  <h2 class="text-[50px] font-bold ml-8">
-    <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-  </h2>
+  <div class="flex justify-between">
+    <div>
+      <h2 class="text-[35px] font-bold ml-8">
+        <a>{{ post.title }}</a>
+      </h2>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="mr-8 mt-8">
+      <a href="{% url 'post_edit' pk=post.pk %}"
+        ><i class="fa-solid fa-pen-to-square text-[20px]"></i
+      ></a>
+    </div>
+    {% endif %}
+  </div>
   <p class="text-[20px] ml-8">{{ post.text|linebreaksbr }}</p>
   <time class="text-[15px] ml-8">published: {{ post.published_date }}</time>
 </article>

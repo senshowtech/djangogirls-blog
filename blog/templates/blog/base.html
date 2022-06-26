@@ -12,16 +12,31 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <title>Blog</title>
   </head>
   <body>
     <header
       class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
     >
-      <div class="h-[100px] grid content-center">
-        <h1 class="text-[50px] font-bold ml-8">
-          <a class="header-text" href="/">Django Girls Blog</a>
-        </h1>
+      <div class="flex justify-between">
+        <div class="h-[100px] grid content-center">
+          <h1 class="text-[30px] font-bold ml-8">
+            <a class="header-text" href="/">Django Girls Blog</a>
+          </h1>
+        </div>
+        <div class="mr-8 mt-8">
+          {% if user.is_authenticated %}
+          <a href="{% url 'post_new' %}"
+            ><i
+              class="fa-solid fa-plus mr-4 text-[25px] text-white hover:text-blue-600"
+            ></i
+          ></a>
+          {% endif %}
+        </div>
       </div>
     </header>
     {% block content %} {% endblock %}
