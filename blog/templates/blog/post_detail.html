@@ -1,0 +1,6 @@
+{% extends 'blog/base.html' %} {% block content %}
+<article>
+  <h2 class="text-[50px] font-bold ml-8">{{ post.title }}</h2>
+  <p class="text-[20px] ml-8">{{ post.text|linebreaksbr }}</p>
+</article>
+{% endblock %}
