@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+    <title>Blog</title>
+  </head>
+  <body>
+    <header
+      class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+    >
+      <div class="h-[100px] grid content-center">
+        <h1 class="text-[50px] font-bold ml-8">
+          <a class="header-text" href="/">Django Girls Blog</a>
+        </h1>
+      </div>
+    </header>
+    {% block content %} {% endblock %}
+  </body>
+</html>
