@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %} {% block content %}
+<h2 class="text-[30px] font-bold ml-8">New post</h2>
+<form method="POST" class="post-form p-6">
+  {% csrf_token %} {{post}}
+  <!-- {{ form.as_p }} -->
+  <div class="shadow sm:rounded-md sm:overflow-hidden">
+    <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+      <div>
+        <label for="id_title" class="block text-sm font-medium text-gray-700">
+          Title
+        </label>
+        <div class="mt-1">
+          <input
+            id="id_title"
+            name="title"
+            rows="3"
+            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md py-4"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+      <div>
+        <label for="about" class="block text-sm font-medium text-gray-700">
+          Text
+        </label>
+        <div class="mt-1">
+          <textarea
+            id="id_text"
+            name="text"
+            rows="8"
+            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="px-4 py-3 sm:px-6 mr-8">
+      <button
+        type="submit"
+        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</form>
+{% endblock %}
