@@ -15,6 +15,9 @@
     {% endif %}
   </div>
   <p class="text-[20px] ml-8">{{ post.text|linebreaksbr }}</p>
+  {% for like in post.like_set.all %}
+  <p>{{like.like}}</p>
+  {% endfor %}
   <time class="text-[15px] ml-8">published: {{ post.published_date }}</time>
 </article>
 {% endfor %} {% endblock %}

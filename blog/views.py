@@ -1,15 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.shortcuts import redirect
-from .models import Post
+from .models import Post, Like
 from .forms import PostForm
 
 # Create your views here.
 
 
 def post_list(request):
-    posts = Post.objects.filter(
-        published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.all().prefetch_related('like_set')
     return render(request, 'blog/post_list.html',  {'posts': posts})
 
 
