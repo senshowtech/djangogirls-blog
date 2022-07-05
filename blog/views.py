@@ -1,14 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.shortcuts import redirect
-from .models import Post, Like
+from django.db.models import Count
+from .models import Post
 from .forms import PostForm
 
 # Create your views here.
 
 
 def post_list(request):
-    posts = Post.objects.all().prefetch_related('like_set')
+    posts = Post.objects.prefetch_related(
+        'like_by').all().annotate(count=Count('like_by'))
     return render(request, 'blog/post_list.html',  {'posts': posts})
 
 
